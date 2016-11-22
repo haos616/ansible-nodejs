@@ -1,0 +1,7 @@
+nodejs_repo: "node_0.12"
+nodejs_repo_key: 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key'
+nodejs_repo_deb: 'deb https://deb.nodesource.com/{{ nodejs_repo }} {{ ansible_distribution_release }} main'
+nodejs_repo_deb_src: 'deb-src https://deb.nodesource.com/{{ nodejs_repo }} {{ ansible_distribution_release }} main'
+
+gulp: false
+bower: false
