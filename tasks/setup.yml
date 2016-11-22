@@ -1,0 +1,25 @@
+- name: Install packages
+  apt: name={{ item }}
+  with_items:
+    - apt-transport-https
+    - lsb-release
+
+- name: Add repo key nodejs
+  apt_key: url="{{ nodejs_repo_key }}"
+
+- name: Add deb repo nodejs
+  apt_repository: repo="{{ nodejs_repo_deb }}"
+
+- name: Add deb-src repo nodejs
+  apt_repository: repo="{{ nodejs_repo_deb_src }}"
+
+- name: Install nodejs
+  apt: name=nodejs
+
+- name: Install gulp
+  npm: name=gulp global=Yes
+  when: gulp
+
+- name: Install bower
+  npm: name=bower global=Yes
+  when: bower
